@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 namespace Console_Application
 {
-    public class User
-    {
+    public class User {
+    List<Rent> currentRents = new List<Rent>();
+    List<User> archivedRents = new List<User>();
         private static List<User> userList = new List<User>();
         private string name {get; set;}
         private string password { get; set;}
@@ -16,11 +17,9 @@ namespace Console_Application
             userList.Add(this);
         }
 
-        public void Login(string username,string password)
-        {
+        public void Login(string username,string password) {
             User u = userList.Find(user => user.name == username);
-            if (u != null)
-            {
+            if (u != null) {
                 if(u.password == password) {
                     Console.WriteLine("successfully logged in");
                 }
