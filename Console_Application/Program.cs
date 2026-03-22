@@ -1,9 +1,6 @@
-namespace Console_Application
-{
-    internal class Program
+class Program
     {
         public static void Main(string[] args)
         {
         }
     }
-}
