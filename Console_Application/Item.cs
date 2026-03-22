@@ -3,7 +3,7 @@ using System.Xml.Schema;
 
 namespace Console_Application
 {
-    public class Item
+    public abstract class Item
     {
         private string name { get; set;}
         private string description { get; set;}

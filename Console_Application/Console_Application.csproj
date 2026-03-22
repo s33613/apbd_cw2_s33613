@@ -40,8 +40,11 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Camera.cs" />
         <Compile Include="Item.cs" />
+        <Compile Include="Laptop.cs" />
         <Compile Include="Program.cs"/>
+        <Compile Include="Projector.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="User.cs" />
     </ItemGroup>
