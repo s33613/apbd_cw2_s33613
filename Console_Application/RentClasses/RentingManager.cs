@@ -7,12 +7,12 @@ namespace Console_Application
     public class RentingManager
     {
         public List<Rent> currentRents { get; private set; }
-        public List<User> archivedRents{ get; private set; }
+        public List<Rent> archivedRents{ get; private set; }
         User user;
         public RentingManager(User user) {
             this.user = user;
             currentRents = new List<Rent>();
-            archivedRents = new List<User>();
+            archivedRents = new List<Rent>();
         }
 
         public void AddRent(Item item, DateTime rentDate, DateTime returnDate) {
@@ -37,10 +37,10 @@ namespace Console_Application
             bool removed = false;
             foreach (Rent rent in currentRents)
             {
-                if (rent.item == item)
+                if (rent.item.Equals(item))
                 {
                     removed = true;
-                    archivedRents.Add(rent.user);
+                    archivedRents.Add(rent);
                     currentRents.Remove(rent);
                     rent.item.Return();
                     break;
@@ -50,7 +50,7 @@ namespace Console_Application
                 Console.WriteLine(item.name + " has been returned");
             }
             else {
-                Console.WriteLine("Item has not been rented returned");
+                Console.WriteLine("Item has not been rented ");
             }
         }
     }

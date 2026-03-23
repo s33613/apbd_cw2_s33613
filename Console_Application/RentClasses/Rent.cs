@@ -19,8 +19,15 @@ namespace Console_Application
                 this.item = item;
                 this.item.Rent();
             }
+            else
+            {
+                throw new Exception("item not available");
+            }
         }
 
-
+        public override string ToString()
+        {
+            return "rented From: "+ rentedFrom + " to " + rentedUntil + " cost " + cost + " item: " + item;
+        }
     }
 }
