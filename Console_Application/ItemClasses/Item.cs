@@ -20,12 +20,11 @@ namespace Console_Application
         {
             if (!isAvailable)
             {
-                Console.WriteLine("Item " + name + " has been Returned");
                 isAvailable = true;
             }
             else
             {
-                Console.WriteLine("Item " + name + " is already in Store");
+                throw new Exception(name + " is already in stock");
             }
         }
 

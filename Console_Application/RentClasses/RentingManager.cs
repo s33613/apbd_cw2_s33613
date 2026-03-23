@@ -43,6 +43,7 @@ namespace Console_Application
                     archivedRents.Add(rent.user);
                     currentRents.Remove(rent);
                     rent.item.Return();
+                    break;
                 }
             }
             if (removed) {

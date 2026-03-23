@@ -26,8 +26,11 @@ class Program
             RentingManager rm = User.Login("Mike", "SecuredPass");
             rm.AddRent(p1, new DateTime(2026,1,14),new DateTime(2026,1,20));
             rm.AddRent(l1, new DateTime(2026,1,14),new DateTime(2026,1,20));
-            rm.AddRent(c1, new DateTime(2026,1,14),new DateTime(2026,1,20));
-            
+            rm =  User.Login("JohnWorker", "Password");
+            rm.AddRent(l2, new DateTime(2026,1,17),new DateTime(2026,1,22));
+            rm.AddRent(l3, new DateTime(2026,1,10),new DateTime(2026,1,22));
+            rm.AddRent(p2, new DateTime(2026,1,20),new DateTime(2026,1,20));
+            rm.ReturnItem(p2);
             
             
         }
