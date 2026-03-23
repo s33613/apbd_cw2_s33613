@@ -4,11 +4,11 @@ namespace Console_Application
 {
     public class Rent
     {
-        private DateTime rentedFrom;
-        private DateTime rentedUntil;
-        Item item;
-        private int cost;
-        private User user;
+        public  DateTime rentedFrom{get; private set; }
+        public  DateTime rentedUntil{get; private set; }
+        public Item item{get; private set; }
+        public  int cost{get; private set; }
+        public  User user{get; private set; }
 
         public Rent(DateTime rentedFrom, DateTime rentedUntil, int cost, User user, Item item) {
             this.rentedFrom = rentedFrom;

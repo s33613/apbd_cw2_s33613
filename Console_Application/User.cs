@@ -3,32 +3,32 @@ using System.Collections.Generic;
 
 namespace Console_Application
 {
-    public class User {
-    List<Rent> currentRents = new List<Rent>();
-    List<User> archivedRents = new List<User>();
+    public abstract partial class User {
         private static List<User> userList = new List<User>();
+        private RentingManager rentingManager;
         private string name {get; set;}
         private string password { get; set;}
 
-        public User(string name, string password)
-        {
+        public User(string name, string password) {
             this.name = name;
             this.password = password;
             userList.Add(this);
+            this.rentingManager = new RentingManager(this);
         }
 
-        public void Login(string username,string password) {
+        public static RentingManager Login(string username,string password) {
             User u = userList.Find(user => user.name == username);
             if (u != null) {
                 if(u.password == password) {
-                    Console.WriteLine("successfully logged in");
+                    return u.rentingManager;
                 }
                 else {
-                    Console.WriteLine("Invalid password");
+                    throw new Exception("Password is incorrect");
                 }
             }
-            else{
-                Console.WriteLine("Cannot find user with this username");
+            else
+            {
+                throw new Exception("Username is incorrect");
             }
         }
     }

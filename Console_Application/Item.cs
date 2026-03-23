@@ -5,8 +5,8 @@ namespace Console_Application
 {
     public abstract class Item
     {
-        private string name { get; set;}
-        private string description { get; set;}
+        public string name { get; private set;}
+        public string description { get; private set;}
         public bool isAvailable { get; private set; }
 
         public Item(string nameP, string descriptionP)
