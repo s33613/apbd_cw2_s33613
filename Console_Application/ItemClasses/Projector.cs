@@ -8,7 +8,7 @@ namespace Console_Application
         {
         }
 
-        public static void Show()
+        public void Project()
         {
             Console.WriteLine("Projecting an image");
         }

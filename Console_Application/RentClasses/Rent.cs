@@ -19,9 +19,6 @@ namespace Console_Application
                 this.item = item;
                 this.item.Rent();
             }
-            else {
-                Console.WriteLine("Item not available"); // TODO: make an exception
-            }
         }
 
 

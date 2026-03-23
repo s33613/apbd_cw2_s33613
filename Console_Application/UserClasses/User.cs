@@ -7,6 +7,7 @@ namespace Console_Application
         private static List<User> userList = new List<User>();
         private RentingManager rentingManager;
         private string name {get; set;}
+        public int rentLimit;
         private string password { get; set;}
 
         public User(string name, string password) {

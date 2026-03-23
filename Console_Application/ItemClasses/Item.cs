@@ -33,12 +33,11 @@ namespace Console_Application
         {
             if (isAvailable)
             {
-                Console.WriteLine("Item " + name + " has been Rented");
                 isAvailable = false;
             }
             else
             {
-                Console.WriteLine("Item " + name + " is already in Rented");
+                throw new Exception(name + " is already rented");
             }
 
         }
