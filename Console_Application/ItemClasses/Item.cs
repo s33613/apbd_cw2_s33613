@@ -41,7 +41,37 @@ namespace Console_Application
             {
                 throw new Exception(name + " is already rented");
             }
+        }
 
+        public static void PrintItems()
+        {
+            foreach (Item item in items) {
+                Console.WriteLine(item + " " + (item.isAvailable ? "Available" : "Not Available"));
+            }
+        }
+
+        public static void PrintAvailableItems() {
+            for (int i = 0; i < Item.items.Count; i++) {
+                if (Item.items[i].isAvailable == true) {
+                    Console.WriteLine(i + " " + Item.items[i]);
+                }
+            }
+            
+        }
+
+        public static void PrintReport() {
+            PrintItems();
+            var available = 0;
+            var unavailable = 0;
+            foreach (Item item in items)
+            {
+                if (item.isAvailable)
+                    available++;
+                else
+                    unavailable++;
+            }
+            Console.WriteLine("Available items: " + available);
+            Console.WriteLine("Unavailable items: " + unavailable);
         }
 
         public override string ToString()

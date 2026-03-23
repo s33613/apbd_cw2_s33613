@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.AccessControl;
 
 namespace Console_Application
@@ -40,6 +41,7 @@ namespace Console_Application
                 if (rent.item.Equals(item))
                 {
                     removed = true;
+                    rent.Return(DateTime.Now);
                     archivedRents.Add(rent);
                     currentRents.Remove(rent);
                     rent.item.Return();
@@ -52,6 +54,10 @@ namespace Console_Application
             else {
                 Console.WriteLine("Item has not been rented ");
             }
+        }
+
+        public void DueRents() {
+            currentRents.Where(e => e.rentedUntil > DateTime.Now).ToList().ForEach(e => Console.WriteLine(e));
         }
     }
 }

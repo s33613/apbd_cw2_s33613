@@ -4,8 +4,7 @@ using Console_Application.Properties;
 
 class Program
     {
-        public static void Main(string[] args)
-        {
+        public static void Main(string[] args) {
             Student s = new Student("Mike", "SecuredPass");
             Employee emp = new Employee("JohnWorker", "Password");
             Camera c1 = new Camera("C350");
@@ -31,6 +30,20 @@ class Program
             rm.AddRent(l3, new DateTime(2026,1,10),new DateTime(2026,1,22));
             rm.AddRent(p2, new DateTime(2026,1,20),new DateTime(2026,1,20));
             rm.ReturnItem(p2);
+            try{
+                rm.AddRent(p1, new DateTime(2026,1,14),new DateTime(2026,1,20));
+            } catch (Exception e){
+                Console.WriteLine(e.Message);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Przedmioty");
+            Item.PrintReport();
+            Console.WriteLine();
+            InteractiveUse();
+            }
+        
+
+        public static void InteractiveUse() {
             bool work = true;
             RentingManager cRm = null;
             while (work) {
@@ -43,7 +56,7 @@ class Program
                         cRm = User.Login(username, password);
                     }
                     catch (Exception e) {
-                        Console.WriteLine(e);
+                        Console.WriteLine(e.Message);
                     }
                 }
                 else
@@ -55,6 +68,7 @@ class Program
                     Console.WriteLine("2. Return an item");
                     Console.WriteLine("3. Check rented items");
                     Console.WriteLine("4. Check archived rents");
+                    Console.WriteLine("5. Check Due rents");
                     string answer = Console.ReadLine();
                     switch (answer)
                     {
@@ -68,11 +82,7 @@ class Program
                         } ;
                         case "1": {
                             Console.WriteLine("Select Item to Rent");
-                            for (int i = 0; i < Item.items.Count; i++) {
-                                if (Item.items[i].isAvailable == true) {
-                                    Console.WriteLine(i + " " + Item.items[i]);
-                                }
-                            }
+                            Item.PrintAvailableItems();
                             int input = int.Parse(Console.ReadLine());
                             DateTime rentDate = DateTime.Today;
                             Console.WriteLine("Write date of return");
@@ -83,7 +93,7 @@ class Program
                             }
                             catch (Exception e)
                             {
-                                Console.WriteLine(e);
+                                Console.WriteLine(e.Message);
                             }
 
                             break;
@@ -114,12 +124,17 @@ class Program
 
                             break;
                         }
+                        case "5":{
+                            cRm.DueRents();
+                            break;
+                        }
                         }
 
                 }
 
 
             }
+
         }
 
 
