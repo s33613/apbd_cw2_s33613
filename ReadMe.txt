@@ -4,7 +4,6 @@ Instrukcja uruchomienia:
 2.Po uruchomieniu automatycznie zobaczysz automatycznie zrobione c 
 3.Wpisz nazwe użytkownika "Mike" dla profilu studenta lub "JohnWorker" dla profilu pracownika
 4.Wpisz haslo "SecuredPass" dla bazowego studenta lub "Password" dla bazowego pracownika
-Aby wyłączyć interaktywny aspekt programu wystarczy zakomentować metode InteractiveUse
 
 Decyzje Podjęte w czasie projektu:
 Klasy przedmiotów dziedziczą po bazowej klasie abstrakcyjnej Item.cs dzięki czemu wszystkie przedmioty
